@@ -13,14 +13,23 @@ function Send-Gist {
       }
     }
 
-    $Header = Get-GistAuthHeader
+    $Header = Get-GistAuthHeader 
+ 
+    $BaseUri = $Uri = "https://api.github.com/gists"    
+    $Method  = 'POST'
  
     $targetGist = Get-Gist $Global:cred.UserName $fileName
     if($targetGist) {
-        $resp = Invoke-RestMethod -Uri "https://api.github.com/gists/$($targetGist.GistID)" -Method Patch -Headers $Header -Body ($gist | ConvertTo-Json)
-    } else {    
-        $resp = Invoke-RestMethod -Uri 'https://api.github.com/gists' -Method Post -Headers $Header -Body ($gist | ConvertTo-Json)
+ 
+        $r=[System.Windows.MessageBox]::Show("Gist already exists. Do you want to overwrite?", "Confirmation", "YesNo", "Question")
+        
+        if($r -eq "no") {return}
+
+        $Uri = $BaseUri + "/$($targetGist.GistID)" 
+        $Method = "Patch"
     }
+
+    $resp = Invoke-RestMethod -Uri $Uri -Method $Method -Headers $Header -Body ($gist | ConvertTo-Json)
 
     Start-Process $resp.'html_url'
 }
