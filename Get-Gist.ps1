@@ -13,6 +13,7 @@ function Get-Gist {
             FileName = &$GetFileName
             Url      = $gist.url
             RawUrl   = ($gist.files).(&$GetFileName).raw_url
+            GistID   = Split-Path -Leaf $gist.url
         }
     }) | Where-Object {$_.FileName -match $FileName}
 }
