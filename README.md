@@ -12,7 +12,7 @@ You need a [GitHub](https://github.com/join) account to post a gist, this does n
 
 ToDo
 -
-* Add Updating an existing gist
+* **[DONE 12/11/13]** Add Updating an existing gist
 * Add Deleting an existing gist
 * Expand capabilities to send files on disk
 * Load an existing gist into ISE
