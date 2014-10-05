@@ -13,5 +13,5 @@ ToDo
 -
 * ~~Add Updating an existing gist~~
 * Add Deleting an existing gist
-* Expand capabilities to send files on disk
+* ~~Expand capabilities to send files on disk~~
 * ~~Load an existing gist into ISE~~

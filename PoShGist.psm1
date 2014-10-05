@@ -16,4 +16,4 @@ function Add-MenuItem {
     [void]$psISE.CurrentPowerShellTab.AddOnsMenu.Submenus.Add($DisplayName, $SB, $ShortCut)
 }
 
-Add-MenuItem "_Send Gist" { Send-Gist } "CTRL+Shift+S"
+Add-MenuItem '_Send Gist' { Send-Gist } 'CTRL+Shift+S'
